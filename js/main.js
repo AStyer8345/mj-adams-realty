@@ -1,4 +1,4 @@
-// MJ Adams | Luxury Realty ATX — main.js
+// MJ Adams | Austin Realtor + Relocation Expert — main.js
 
 // === NAV: sticky style + mobile hamburger ===
 (function () {
@@ -72,11 +72,11 @@
   if (!('IntersectionObserver' in window)) return;
 
   var targets = document.querySelectorAll(
-    '.listing, .meet-text, .meet-photo, .contact-left, .contact-right, .areas-left, .areas-right'
+    '.listing, .meet-text, .meet-photo, .contact-left, .contact-right, .areas-left, .areas-right, .stat, .why-left, .why-item'
   );
 
   targets.forEach(function (el) {
-    el.classList.add('fade-up');
+    el.classList.add('reveal');
   });
 
   var observer = new IntersectionObserver(function (entries) {
