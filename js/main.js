@@ -4,22 +4,21 @@
 (function () {
   var nav    = document.getElementById('nav');
   var toggle = document.getElementById('navToggle');
-  var links  = document.getElementById('navLinks');
+  var menu   = document.getElementById('navMenu');
 
   window.addEventListener('scroll', function () {
     nav.classList.toggle('scrolled', window.scrollY > 50);
   }, { passive: true });
 
   toggle.addEventListener('click', function () {
-    var open = links.classList.toggle('open');
+    var open = menu.classList.toggle('open');
     toggle.classList.toggle('open', open);
     toggle.setAttribute('aria-expanded', open);
   });
 
-  // Close mobile nav when any link is tapped
-  links.querySelectorAll('a').forEach(function (a) {
+  menu.querySelectorAll('a').forEach(function (a) {
     a.addEventListener('click', function () {
-      links.classList.remove('open');
+      menu.classList.remove('open');
       toggle.classList.remove('open');
       toggle.setAttribute('aria-expanded', 'false');
     });
@@ -29,7 +28,7 @@
 
 // === REVIEWS CAROUSEL ===
 (function () {
-  var slides  = Array.from(document.querySelectorAll('.review-slide'));
+  var slides  = Array.from(document.querySelectorAll('.review'));
   var dots    = Array.from(document.querySelectorAll('.dot'));
   var prevBtn = document.getElementById('reviewPrev');
   var nextBtn = document.getElementById('reviewNext');
@@ -59,7 +58,6 @@
     });
   });
 
-  // Keyboard arrow support
   document.addEventListener('keydown', function (e) {
     if (e.key === 'ArrowLeft')  goTo(current - 1);
     if (e.key === 'ArrowRight') goTo(current + 1);
@@ -73,18 +71,9 @@
 (function () {
   if (!('IntersectionObserver' in window)) return;
 
-  var selectors = [
-    '.listing-card',
-    '.area-pill',
-    '.about-text',
-    '.about-photos',
-    '.contact-text',
-    '.contact-form-wrap',
-    '.section-header',
-    '.reviews-carousel'
-  ];
-
-  var targets = document.querySelectorAll(selectors.join(', '));
+  var targets = document.querySelectorAll(
+    '.listing, .meet-text, .meet-photo, .contact-left, .contact-right, .areas-left, .areas-right'
+  );
 
   targets.forEach(function (el) {
     el.classList.add('fade-up');
@@ -93,7 +82,6 @@
   var observer = new IntersectionObserver(function (entries) {
     entries.forEach(function (entry, i) {
       if (entry.isIntersecting) {
-        // Stagger siblings that appear simultaneously
         var delay = (i % 4) * 80;
         setTimeout(function () {
           entry.target.classList.add('visible');
@@ -107,9 +95,8 @@
 })();
 
 
-// === SMOOTH SCROLL (fallback for browsers without CSS scroll-behavior) ===
+// === SMOOTH SCROLL (fallback) ===
 (function () {
-  // Only needed if CSS scroll-behavior not supported
   if ('scrollBehavior' in document.documentElement.style) return;
 
   document.querySelectorAll('a[href^="#"]').forEach(function (a) {
@@ -134,9 +121,6 @@
   form.addEventListener('submit', function () {
     btn.textContent = 'Sending…';
     btn.disabled = true;
-
-    // If Formspree returns to same page, show success message
-    // (Formspree default redirect can be overridden; this handles the fallback)
     setTimeout(function () {
       btn.textContent = 'Send Message';
       btn.disabled = false;
