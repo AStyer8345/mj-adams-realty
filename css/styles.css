@@ -1,6 +1,6 @@
 /* =============================================
-   MJ Adams | Luxury Realty ATX
-   Redesign — editorial luxury aesthetic
+   MJ Adams | Austin Realtor® + Relocation Expert
+   Editorial aesthetic
    ============================================= */
 
 :root {
@@ -210,6 +210,24 @@ address { font-style: normal; }
 .arrow { display: inline-block; transition: transform var(--ease); }
 .btn-text:hover .arrow { transform: translateX(4px); }
 
+/* Primary hero CTA — boxed, fills on hover */
+.btn-hero {
+  font-family: var(--sans);
+  font-size: 0.72rem;
+  font-weight: 400;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--white);
+  border: 1px solid rgba(255,255,255,0.7);
+  padding: 0.95rem 2.4rem;
+  transition: background var(--ease), color var(--ease), border-color var(--ease);
+}
+.btn-hero:hover {
+  background: var(--white);
+  border-color: var(--white);
+  color: var(--ink);
+}
+
 /* Scroll hint line */
 .hero-scroll-hint {
   position: absolute;
@@ -293,6 +311,35 @@ address { font-style: normal; }
 
 
 /* =============================================
+   FACTS STRIP
+   ============================================= */
+.stats {
+  background: var(--linen);
+  padding: 4.5rem 6vw;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 3rem;
+  max-width: 100%;
+}
+.stat-value {
+  font-family: var(--serif);
+  font-size: clamp(1.9rem, 3vw, 2.7rem);
+  font-weight: 300;
+  line-height: 1.1;
+  color: var(--ink);
+  margin-bottom: 0.6rem;
+  letter-spacing: -0.01em;
+}
+.stat-label {
+  font-family: var(--sans);
+  font-size: 0.78rem;
+  color: var(--muted);
+  line-height: 1.6;
+  max-width: 240px;
+}
+
+
+/* =============================================
    MEET MJ
    ============================================= */
 .meet {
@@ -364,6 +411,41 @@ address { font-style: normal; }
 
 
 /* =============================================
+   WHY AUSTIN
+   ============================================= */
+.why {
+  background: var(--white);
+  padding: 7rem 6vw;
+}
+.why-inner {
+  display: grid;
+  grid-template-columns: 1fr 1.4fr;
+  gap: 6rem;
+  align-items: start;
+  max-width: var(--max);
+  margin: 0 auto;
+}
+.why-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3.5rem 3rem;
+}
+.why-item h3 {
+  font-family: var(--serif);
+  font-size: 1.45rem;
+  font-weight: 400;
+  color: var(--ink);
+  margin-bottom: 0.6rem;
+  letter-spacing: 0.01em;
+}
+.why-item p {
+  font-size: 0.88rem;
+  color: var(--ink-lt);
+  line-height: 1.75;
+}
+
+
+/* =============================================
    LISTINGS
    ============================================= */
 .listings {
@@ -373,19 +455,42 @@ address { font-style: normal; }
 .listings-header {
   margin-bottom: 4rem;
 }
-.listings-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 2px;
-  background: var(--linen-dark);
-  border: 2px solid var(--linen-dark);
-  margin-bottom: 3.5rem;
-}
 .listing {
   background: var(--linen);
   transition: background var(--ease);
 }
 .listing:hover { background: var(--white); }
+.listing--featured {
+  display: grid;
+  grid-template-columns: 1.4fr 1fr;
+  border: 2px solid var(--linen-dark);
+  margin-bottom: 3.5rem;
+  background: var(--white);
+}
+.listing--featured .listing-photo {
+  aspect-ratio: auto;
+  min-height: 440px;
+}
+.listing--featured .listing-info {
+  padding: 3.5rem 3rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.listing-desc {
+  font-size: 0.9rem;
+  color: var(--ink-lt);
+  line-height: 1.75;
+  margin-top: 1.25rem;
+  max-width: 380px;
+}
+.listing-mls {
+  font-size: 0.65rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--taupe-dark);
+  margin-top: 1.25rem;
+}
 .listing-photo {
   aspect-ratio: 4/3;
   position: relative;
@@ -444,7 +549,25 @@ address { font-style: normal; }
   gap: 0.4rem;
 }
 .dot-sep { color: var(--taupe); }
-.listings-cta { text-align: left; }
+.listings-cta {
+  display: flex;
+  align-items: center;
+  gap: 2.5rem;
+}
+.listings-cta .btn-outline { margin-top: 0; }
+.btn-text-dark {
+  font-family: var(--sans);
+  font-size: 0.68rem;
+  font-weight: 400;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--ink-lt);
+  border-bottom: 1px solid var(--taupe);
+  padding-bottom: 3px;
+  transition: color var(--ease), border-color var(--ease);
+}
+.btn-text-dark:hover { color: var(--ink); border-color: var(--ink); }
+.btn-text-dark:hover .arrow { transform: translateX(4px); }
 
 
 /* =============================================
@@ -777,6 +900,8 @@ address { font-style: normal; }
   .footer-top { grid-template-columns: 1fr 1fr; gap: 2.5rem; }
   .footer-social { flex-direction: row; }
   .contact-inner { gap: 4rem; }
+  .stats { grid-template-columns: 1fr 1fr; gap: 2.5rem; }
+  .why-inner { grid-template-columns: 1fr; gap: 3.5rem; }
 }
 
 /* =============================================
@@ -817,9 +942,19 @@ address { font-style: normal; }
   /* Photo strip */
   .photo-strip { height: 280px; }
 
+  /* Stats */
+  .stats { padding: 3.5rem 1.5rem; gap: 2rem; }
+
+  /* Why Austin */
+  .why { padding: 5rem 1.5rem; }
+  .why-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+
   /* Listings */
   .listings { padding: 5rem 1.5rem; }
-  .listings-grid { grid-template-columns: 1fr; gap: 2px; }
+  .listing--featured { grid-template-columns: 1fr; }
+  .listing--featured .listing-photo { min-height: 280px; }
+  .listing--featured .listing-info { padding: 2.5rem 1.75rem; }
+  .listings-cta { flex-direction: column; align-items: flex-start; gap: 1.75rem; }
 
   /* Areas */
   .areas { padding: 5rem 1.5rem; }
@@ -844,6 +979,7 @@ address { font-style: normal; }
    ============================================= */
 @media (max-width: 480px) {
   .hero-headline { font-size: 3.2rem; }
+  .stats { grid-template-columns: 1fr; }
   .section-heading { font-size: 2.4rem; }
   .meet-heading { font-size: 2.8rem; }
   .photo-strip { height: 200px; }
