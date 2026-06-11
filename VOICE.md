@@ -19,9 +19,11 @@ scraping, so verbatim material below comes from indexed snippets of those pages)
 ## Hard facts (verified across multiple sources)
 
 - Full name Marjory Adams; goes by **MJ**.
-- **Brokerage: Compass RE Texas, LLC** — *not* eXp Realty (the previous site was wrong).
-- TX license **#0786861**. Office: 14010 N Hwy 183, Austin, TX 78717.
-- Phone **(281) 881-9456** · Email **mj.adams@compass.com**.
+- **Brokerage: eXp Realty** — confirmed directly by the site owner (June 2026). Her
+  indexed web profiles (Compass, ABoR, Unlock MLS) still show Compass RE Texas, LLC,
+  so those listings/snippets are stale; she should update them.
+- TX license **#0786861**. Office: 9600 Great Hills Trl, Ste 150W, Austin, TX 78759.
+- Phone **(281) 881-9456** · Email **mj@mjadamsrealty.com**.
 - Born and raised in **Houston, TX**. Moved to Austin with her family in **2016** —
   per her bio, they "instantly fell in love and never looked back."
 - Wife; **mom of two sons and a bonus daughter**.
