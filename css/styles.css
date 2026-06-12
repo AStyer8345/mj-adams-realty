@@ -137,7 +137,7 @@ address { font-style: normal; }
   width: 100%;
   height: 100%;
   object-fit: cover;
-  object-position: center top;
+  object-position: center 35%;
   filter: brightness(0.72);
 }
 /* Gradient: dark at bottom-left for text legibility */
@@ -607,11 +607,29 @@ address { font-style: normal; }
    REVIEWS
    ============================================= */
 .reviews {
-  background: var(--linen-dark);
+  position: relative;
+  background: var(--ink);
   padding: 7rem 6vw;
   text-align: center;
+  overflow: hidden;
+}
+.reviews .label { color: var(--taupe); position: relative; z-index: 1; }
+.reviews::before {
+  content: '\201C';
+  position: absolute;
+  top: 2rem;
+  left: 50%;
+  transform: translateX(-50%);
+  font-family: var(--serif);
+  font-size: 16rem;
+  line-height: 1;
+  color: var(--taupe);
+  opacity: 0.16;
+  pointer-events: none;
 }
 .review-track {
+  position: relative;
+  z-index: 1;
   max-width: 760px;
   margin: 0 auto;
   min-height: 200px;
@@ -630,7 +648,7 @@ address { font-style: normal; }
   font-size: clamp(1.4rem, 3vw, 2.1rem);
   font-weight: 300;
   font-style: italic;
-  color: var(--ink);
+  color: var(--linen);
   line-height: 1.55;
   margin-bottom: 2rem;
   letter-spacing: 0.01em;
@@ -641,7 +659,7 @@ address { font-style: normal; }
   font-weight: 400;
   letter-spacing: 0.22em;
   text-transform: uppercase;
-  color: var(--taupe-dark);
+  color: var(--taupe);
   font-style: normal;
 }
 .review-controls {
@@ -653,8 +671,8 @@ address { font-style: normal; }
 }
 .review-prev, .review-next {
   background: none;
-  border: 1px solid var(--taupe);
-  color: var(--ink-lt);
+  border: 1px solid rgba(196, 181, 160, 0.4);
+  color: var(--taupe);
   width: 40px;
   height: 40px;
   cursor: pointer;
@@ -665,9 +683,9 @@ address { font-style: normal; }
   justify-content: center;
 }
 .review-prev:hover, .review-next:hover {
-  background: var(--ink);
-  border-color: var(--ink);
-  color: var(--white);
+  background: var(--taupe);
+  border-color: var(--taupe);
+  color: var(--ink);
 }
 .review-dots {
   display: flex;
@@ -677,14 +695,14 @@ address { font-style: normal; }
   width: 6px;
   height: 6px;
   border-radius: 50%;
-  background: var(--taupe);
+  background: rgba(196, 181, 160, 0.4);
   border: none;
   cursor: pointer;
   padding: 0;
   transition: background var(--ease), transform var(--ease);
 }
 .dot.active {
-  background: var(--ink);
+  background: var(--taupe);
   transform: scale(1.4);
 }
 
@@ -907,26 +925,29 @@ address { font-style: normal; }
 }
 .footer-social {
   display: flex;
-  flex-direction: column;
-  gap: 0.65rem;
+  flex-direction: row;
+  gap: 0.75rem;
 }
 .footer-social a {
-  font-family: var(--sans);
-  font-size: 0.62rem;
-  letter-spacing: 0.18em;
-  text-transform: uppercase;
-  color: rgba(255,255,255,0.45);
+  color: rgba(255,255,255,0.5);
   border: 1px solid rgba(255,255,255,0.15);
-  width: 36px;
-  height: 36px;
+  width: 40px;
+  height: 40px;
   display: flex;
   align-items: center;
   justify-content: center;
   transition: all var(--ease);
 }
+.footer-social a svg {
+  width: 17px;
+  height: 17px;
+  fill: currentColor;
+  display: block;
+}
 .footer-social a:hover {
-  border-color: rgba(255,255,255,0.5);
+  border-color: var(--taupe);
   color: var(--white);
+  background: rgba(196, 181, 160, 0.12);
 }
 .footer-bottom { text-align: center; }
 .footer-disclosure {
