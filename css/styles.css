@@ -56,9 +56,17 @@ address { font-style: normal; }
   padding: 0 2.5rem;
   transition: background var(--ease), box-shadow var(--ease);
 }
-.nav.over-dark {
-  /* when hero image is behind nav */
+/* Dark scrim behind nav over the bright top of the hero; fades out on scroll */
+.nav::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: linear-gradient(to bottom, rgba(20,16,12,0.55) 0%, rgba(20,16,12,0) 100%);
+  transition: opacity var(--ease);
+  pointer-events: none;
 }
+.nav.scrolled::before { opacity: 0; }
 .nav.scrolled {
   background: rgba(247,243,238,0.97);
   box-shadow: 0 1px 0 rgba(0,0,0,0.06);
