@@ -690,6 +690,73 @@ address { font-style: normal; }
 
 
 /* =============================================
+   INSTAGRAM
+   ============================================= */
+.instagram {
+  padding: 7rem 6vw;
+  background: var(--linen-dark);
+}
+.instagram-header {
+  text-align: center;
+  margin-bottom: 3.5rem;
+}
+.instagram-header .label { margin-bottom: 1rem; }
+.instagram-handle {
+  display: inline-block;
+  margin-top: 1.5rem;
+  font-family: var(--sans);
+  font-size: 0.8rem;
+  letter-spacing: 0.15em;
+  color: var(--taupe-dark);
+  border-bottom: 1px solid var(--taupe);
+  padding-bottom: 4px;
+  transition: color var(--ease);
+}
+.instagram-handle:hover { color: var(--ink); }
+.instagram-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2px;
+  max-width: var(--max);
+  margin: 0 auto;
+}
+.ig-tile {
+  position: relative;
+  display: block;
+  aspect-ratio: 1 / 1;
+  overflow: hidden;
+  background: var(--fallback);
+}
+.ig-tile img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.7s ease;
+}
+.ig-tile:hover img { transform: scale(1.05); }
+.ig-overlay {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(20, 16, 12, 0);
+  transition: background var(--ease);
+}
+.ig-tile:hover .ig-overlay { background: rgba(20, 16, 12, 0.45); }
+.ig-mark {
+  font-family: var(--sans);
+  font-size: 0.62rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--white);
+  opacity: 0;
+  transition: opacity var(--ease);
+}
+.ig-tile:hover .ig-mark { opacity: 1; }
+
+
+/* =============================================
    CONTACT
    ============================================= */
 .contact {
